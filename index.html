@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+        content="Explore Mike Canfield's stories, coloring books, Trouble Monsters, and Personal Power resources for children and families.">
+  <title>Mike Canfield | Stories & Personal Power</title>
+  <style>
+    :root {
+      --blue: #173d59;
+     --teal: #176b65;
+      --cream: #fffaf0;
+      --gold: #ffcf69;
+      --ink: #233743;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.65;
+    }
+    a { color: var(--teal); }
+    a:focus-visible {
+      outline: 3px solid #c15416;
+      outline-offset: 5px;
+    }
+    .wrap { width: min(1100px, 90%); margin: auto; }
+    header { background: white; border-bottom: 1px solid #e2e7e5; }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+      flex-wrap: wrap;
+    }
+    .brand {
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: var(--blue);
+    }
+    nav { display: flex; flex-wrap: wrap; gap: 20px; }
+    nav a { text-decoration: none; font-weight: bold; }
+    .hero { background: var(--blue); color: white; padding: 85px 0; }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .8rem;
+      font-weight: bold;
+    }
+    .hero .eyebrow { color: var(--gold); }
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: 1.1;
+      max-width: 850px;
+      margin: 20px 0;
+    }
+    .hero p { max-width: 650px; font-size: 1.2rem; }
+    .buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+    .button {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 8px;
+      background: var(--teal);
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .hero .button { background: var(--gold); color: var(--blue); }
+    .hero .secondary { background: transparent; color: white; border: 1px solid white; }
+    section { padding: 65px 0; scroll-margin-top: 20px; }
+    h2 { color: var(--blue); font-size: 2rem; line-height: 1.2; }
+    h3 { color: var(--blue); line-height: 1.3; }
+    .intro { max-width: 740px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+      margin-top: 30px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #dce4df;
+      border-radius: 14px;
+      padding: 26px;
+    }
+    .card h3 { margin-top: 0; }
+    .tag { font-size: .8rem; font-weight: bold; color: var(--teal); }
+    .soft { background: #eaf2ec; }
+    .steps { padding-left: 24px; max-width: 750px; }
+    .steps li { padding: 8px 0; }
+    .quote {
+      margin: 25px 0;
+      padding-left: 20px;
+      border-left: 5px solid var(--teal);
+      font-size: 1.4rem;
+      color: var(--blue);
+      font-weight: bold;
+    }
+    footer { padding: 30px 0; background: var(--blue); color: white; }
+    footer a { color: var(--gold); }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap header-inner">
+      <a class="brand" href="#">Mike Canfield</a>
+      <nav aria-label="Main navigation">
+        <a href="#books">Books</a>
+        <a href="#personal-power">Personal Power</a>
+        <a href="#families">For Families</a>
+        <a href="#about">About Mike</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Stories • Coloring • Connection</div>
+        <h1>Big feelings.<br>Small steps.<br>Personal Power.</h1>
+        <p>
+          Discover stories and coloring books that invite children and
+          caring adults to explore courage, kindness, connection,
+          and the choices that help us take on Trouble together.
+        </p>
+        <div class="buttons">
+          <a class="button" href="#books">Explore the books</a>
+          <a class="button secondary" href="#families">Start a conversation</a>
+        </div>
+      </div>
+    </div>
+
+    <section id="books">
+      <div class="wrap">
+        <div class="eyebrow">Mike’s bookshelf</div>
+        <h2>Stories that open conversations</h2>
+        <p class="intro">
+          Read together, color together, and talk about the challenges
+          that matter in your family. Explore Mike Canfield’s books
+          on Amazon for available editions.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <div class="tag">UNDERSTANDING TROUBLE</div>
+            <h3>Deflating Trouble: An Allegory</h3>
+            <p>A story that introduces Trouble and invites readers
+              to think about their Personal Power.</p>
+          </article>
+          <article class="card">
+            <div class="tag">FAMILIES & COMMUNITY</div>
+            <h3>Trouble Comes to Town</h3>
+            <p>A coloring book for exploring how Trouble affects
+              people, relationships, and communities.</p>
+          </article>
+          <article class="card">
+            <div class="tag">COURAGE & FRIENDSHIP</div>
+            <h3>The Trouble Monsters: Lilly & Mia Stand Up to Trouble</h3>
+            <p>Explore standing together and using Personal Power
+              when Trouble comes along.</p>
+          </article>
+          <article class="card">
+            <div class="tag">HOPE & COMMUNITY</div>
+            <h3>Ambrose’s Journey</h3>
+            <p>A coloring book about community, courage,
+              and Personal Power.</p>
+          </article>
+          <article class="card">
+            <div class="tag">STRONGER TOGETHER</div>
+            <h3>Strong Families / Familia Imara</h3>
+            <p>Explore family strength and taking on Trouble
+              together through English and Kiswahili.</p>
+          </article>
+          <article class="card">
+            <div class="tag">SPANISH EDITION</div>
+            <h3>Los problemas llegan al pueblo</h3>
+            <p>Explore Trouble and Personal Power through
+              a Spanish-language coloring book.</p>
+          </article>
+        </div>
+
+        <div class="buttons">
+          <a class="button"
+             href="https://www.amazon.com/s?k=Mike+Canfield+books">
+            Search Mike Canfield on Amazon
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft" id="personal-power">
+      <div class="wrap">
+        <div class="eyebrow">Meet the ideas behind the stories</div>
+        <h2>Trouble Monsters & Personal Power Pals</h2>
+        <p class="intro">
+          Trouble Monsters are imaginary characters that give a name
+          to familiar challenges such as anger, fear, doubt,
+          frustration, and isolation. Personal Power Pals represent
+          helpful skills we can practice—with support from others.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <h3>When frustration says, “Give up!”</h3>
+            <p>Practice patience and persistence: pause, ask for help,
+              and try one small step.</p>
+          </article>
+          <article class="card">
+            <h3>When isolation says, “Stay away.”</h3>
+            <p>Practice connection: reach out to someone you trust
+              or invite someone to join you.</p>
+          </article>
+          <article class="card">
+            <h3>When doubt says, “You can’t.”</h3>
+            <p>Practice courage: you can try something difficult
+              while still feeling unsure.</p>
+          </article>
+        </div>
+
+        <p class="quote">
+          Personal Power grows when we help others use theirs.
+        </p>
+        <p class="intro">
+          Protective Power includes the people who stand beside us:
+          family, teachers, coaches, friends, and trusted adults.
+          We don’t have to face every challenge alone.
+        </p>
+      </div>
+    </section>
+
+    <section id="families">
+      <div class="wrap">
+        <div class="eyebrow">A little time together matters</div>
+        <h2>Make the story your own</h2>
+        <p class="intro">
+          You can choose any page that fits what your child or family
+          needs in the moment. Let coloring create room for connection
+          without pressure to have every answer.
+        </p>
+        <ol class="steps">
+          <li><strong>Choose a page together.</strong>
+            What catches your child’s attention today?</li>
+          <li><strong>Get curious.</strong>
+            “What do you think is happening in this picture?”</li>
+          <li><strong>Notice the Trouble.</strong>
+            “What might the Trouble Monster be whispering?”</li>
+          <li><strong>Find a helpful choice.</strong>
+            “Who could help? What small step could the character try?”</li>
+        </ol>
+        <p class="intro">
+          A conversation starter: <strong>“I can feel mad and still
+          be safe.”</strong> Feelings don’t have to disappear before
+          we can accept support and choose what to do next.
+        </p>
+      </div>
+    </section>
+
+    <section class="soft" id="about">
+      <div class="wrap">
+        <div class="eyebrow">Meet the author</div>
+        <h2>Hi, I’m Mike Canfield.</h2>
+        <p class="intro">
+          I’m an author, trainer, and Executive Director of Family
+          Success Northwest. Beth and I began our work as house parents
+          in 1983 and were foster parents from 1983 to 2017.
+        </p>
+        <p class="intro">
+          My work brings together storytelling, practical skills,
+          and decades of experience supporting children and families.
+          These books offer another way to talk, learn, and build
+          Personal Power together.
+        </p>
+        <p class="quote">Strong parents build strong communities.</p>
+        <a class="button" href="https://www.familysuccessnw.org/">
+          Visit Family Success Northwest
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <strong>Mike Canfield · Stories & Personal Power</strong>
+      <p>
+        <a href="https://www.amazon.com/s?k=Mike+Canfield+books">
+          Find books on Amazon
+        </a>
+        ·
+        <a href="https://www.familysuccessnw.org/">
+          Family Success Northwest
+        </a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
