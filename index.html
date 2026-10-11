@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-        content="Explore Mike Canfield's stories, coloring books, Trouble Monsters, and Personal Power resources for children and families.">
+        content="Find a coloring book to explore big feelings, friendship, courage, and family connection. Stories and Personal Power resources for caregivers and children.">
   <title>Mike Canfield | Stories & Personal Power</title>
   <style>
     :root {
@@ -75,6 +75,36 @@
     }
     .hero .button { background: var(--gold); color: var(--blue); }
     .hero .secondary { background: transparent; color: white; border: 1px solid white; }
+    button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #c15416; outline-offset: 4px; }
+    [hidden] { display: none !important; }
+    .caregiver-hero { background: #edf3eb; color: var(--ink); padding: 65px 0; }
+    .caregiver-hero .eyebrow { color: var(--teal); }
+    .caregiver-opening { display: grid; grid-template-columns: 1.1fr 1fr; gap: 45px; align-items: center; }
+    .caregiver-hero h1 { color: var(--blue); font-size: clamp(2.3rem, 4.5vw, 3.8rem); letter-spacing: -1.5px; }
+    .caregiver-hero p { font-size: 1.1rem; }
+    .caregiver-hero .hero-note { color: #52675f; font-size: .9rem; }
+    .caregiver-hero .button { background: var(--teal); color: white; }
+    .book-finder { padding: 28px; background: white; border: 1px solid #dce4df; border-radius: 18px; box-shadow: 0 12px 30px #173d590a; }
+    .book-finder h2 { font-size: 1.55rem; margin: 0 0 8px; }
+    .book-finder p { font-size: .9rem; color: #52675f; }
+    .book-finder label { display: block; font-size: .85rem; font-weight: bold; margin: 16px 0 6px; }
+    .book-finder input, .book-finder select { width: 100%; padding: 12px; border: 1px solid #b9ccc3; border-radius: 7px; background: white; color: var(--ink); font: inherit; }
+    .book-finder .button { border: 0; width: 100%; margin-top: 18px; font: inherit; font-weight: bold; cursor: pointer; }
+    .finder-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 13px; }
+    .finder-topics button { border: 1px solid #d0dfd5; border-radius: 20px; padding: 7px 12px; background: #f5f8f2; color: var(--teal); font: inherit; font-size: .8rem; cursor: pointer; }
+    .finder-topics button[aria-pressed="true"] { background: var(--teal); color: white; border-color: var(--teal); }
+    .book-results-bar { display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: wrap; margin-top: 25px; }
+    .book-results-bar p { margin: 0; color: #52675f; }
+    .book-reset { border: 0; background: transparent; padding: 6px 0; color: var(--teal); font: inherit; font-weight: bold; text-decoration: underline; cursor: pointer; }
+    .book-empty { padding: 24px; background: #edf3eb; border-radius: 12px; }
+    .book-empty h3 { margin-top: 0; }
+    .site-banner { padding: 30px 0; background: var(--cream); }
+    .site-banner img { width: min(1100px, 90%); margin: auto; border-radius: 16px; }
+    @media (max-width: 800px) {
+      .caregiver-opening { grid-template-columns: 1fr; gap: 24px; }
+      .caregiver-hero { padding: 40px 0; }
+      .book-finder { padding: 24px; }
+    }
     section { padding: 65px 0; scroll-margin-top: 20px; }
     h2 { color: var(--blue); font-size: 2rem; line-height: 1.2; }
     h3 { color: var(--blue); line-height: 1.3; }
@@ -185,44 +215,58 @@
   </header>
 
   <main>
-    <div class="site-banner">
-      <img src="assets/family-success-banner.jpg" width="1671" height="941" fetchpriority="high" alt="Family Success Northwest. Mike Canfield, Executive Director. Sunset over the shoreline.">
-    </div>
-    <div class="hero">
-      <div class="wrap">
-        <div class="eyebrow">Stories • Coloring • Connection</div>
-        <h1>Big feelings.<br>Small steps.<br>Personal Power.</h1>
-        <p>
-          Discover stories and coloring books that invite children and
-          caring adults to explore courage, kindness, connection,
-          and the choices that help us take on Trouble together.
-        </p>
-        <div class="buttons">
-          <a class="button" href="#books">Explore the books</a>
-          <a class="button secondary" href="#families">Start a conversation</a>
+    <section class="hero caregiver-hero" aria-labelledby="caregiver-title">
+      <div class="wrap caregiver-opening">
+        <div>
+          <div class="eyebrow">For parents, caregivers &amp; caring adults</div>
+          <h1 id="caregiver-title">Find a coloring book for the moments that matter.</h1>
+          <p>Big feelings, new friendships, or a little courage to try again. Find a story you can read and color together to start a helpful conversation.</p>
+          <p class="hero-note">A small moment together can be a place to begin.</p>
+          <div class="buttons"><a class="button" href="#books">Browse all books</a><a href="#families">Ideas for coloring together →</a></div>
+        </div>
+        <div class="book-finder">
+          <h2>What would you like to explore?</h2>
+          <p>Search for a book, a feeling, or a skill you want to talk about.</p>
+          <form id="book-finder-form">
+            <label for="book-search">Search the bookshelf</label>
+            <input id="book-search" type="search" placeholder="Try frustration, friendship, or courage">
+            <label for="book-topic">Or choose a topic</label>
+            <select id="book-topic"><option value="all">All topics</option><option value="feelings">Big feelings &amp; calming down</option><option value="friendship">Friendship &amp; inclusion</option><option value="family">Family &amp; community</option><option value="courage">Courage &amp; confidence</option><option value="future">Dreams &amp; future possibilities</option></select>
+            <button class="button" type="submit">Find a coloring book ↓</button>
+          </form>
+          <p>Not sure where to start? Choose a topic:</p>
+          <div class="finder-topics" aria-label="Quick book topics">
+            <button type="button" data-book-topic="feelings" aria-pressed="false">Big feelings</button>
+            <button type="button" data-book-topic="friendship" aria-pressed="false">Friendship</button>
+            <button type="button" data-book-topic="family" aria-pressed="false">Family connection</button>
+            <button type="button" data-book-topic="courage" aria-pressed="false">Courage</button>
+            <button type="button" data-book-topic="future" aria-pressed="false">Future possibilities</button>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <section id="books">
       <div class="wrap">
         <div class="eyebrow">Mike’s bookshelf</div>
-        <h2>Stories that open conversations</h2>
+        <h2 id="books-title" tabindex="-1">Find your next conversation starter</h2>
         <p class="intro">
           Read together, color together, and talk about the challenges
           that matter in your family. Explore Mike Canfield’s books
           on Amazon for available editions.
         </p>
 
+        <div class="book-results-bar"><p id="book-results-count" role="status" aria-live="polite">Showing all 9 books</p><button class="book-reset" id="book-reset" type="button" hidden>Show all books</button></div>
+        <div class="book-empty" id="book-empty" hidden><h3>No matching books yet</h3><p>Try a broader word like “family” or “friendship,” or show all books to explore the collection.</p></div>
         <div class="grid">
-          <article class="card book-card">
+          <article class="card book-card" data-book-topics="feelings courage" data-book-keywords="anger worry fear kindness connection calm behavior behaviour emotions">
             <a href="https://www.amazon.com/dp/B0CGWPF614" style="align-self: center"><img class="book-cover" src="assets/books/deflating-trouble.png" alt="Cover of Deflating Trouble: An Allegory" width="232" height="232" loading="lazy"></a>
             <div class="tag">UNDERSTANDING TROUBLE</div>
             <h3><a href="https://www.amazon.com/dp/B0CGWPF614">Deflating Trouble: An Allegory</a></h3>
             <p>Meet Trouble through a story about Personal Power. Read and color together as you explore how kindness, courage, and connection can help make Trouble smaller.</p>
             <a class="book-link" href="https://www.amazon.com/dp/B0CGWPF614">View this book on Amazon<span class="sr-only">: Deflating Trouble: An Allegory</span></a>
           </article>
-          <article class="card book-card">
+          <article class="card book-card" data-book-topics="family feelings" data-book-keywords="family community feelings helpful choices support">
             <a href="https://www.amazon.com/dp/B0DC73Q7VK" style="align-self: center"><img class="book-cover" src="assets/books/trouble-comes-to-town.png" alt="Cover of Trouble Comes to Town" width="179" height="232" loading="lazy"></a>
             <div class="tag">FAMILIES &amp; COMMUNITY</div>
             <h3><a href="https://www.amazon.com/dp/B0DC73Q7VK">Trouble Comes to Town</a></h3>
@@ -232,14 +276,14 @@
               <a class="book-link" href="https://www.amazon.com/dp/B0DC73Q7VK">View this book on Amazon<span class="sr-only">: Trouble Comes to Town</span></a>
             </div>
           </article>
-          <article class="card book-card">
+          <article class="card book-card" data-book-topics="friendship courage" data-book-keywords="friend friends bullying bravery confidence connection">
             <a href="https://www.amazon.com/dp/B0GTDVYR6L" style="align-self: center"><img class="book-cover" src="assets/books/lilly-and-mia.jpg" alt="Cover of The Trouble Monsters: Lilly &amp; Mia Stand Up to Trouble" width="1000" height="1293" loading="lazy"></a>
             <div class="tag">COURAGE &amp; FRIENDSHIP</div>
             <h3><a href="https://www.amazon.com/dp/B0GTDVYR6L">The Trouble Monsters: Lilly &amp; Mia Stand Up to Trouble</a></h3>
             <p>Join Lilly and Mia as they stand up to Trouble together. Their story opens conversations about friendship, courage, and using Personal Power with support from others.</p>
             <a class="book-link" href="https://www.amazon.com/dp/B0GTDVYR6L">View this book on Amazon<span class="sr-only">: The Trouble Monsters: Lilly &amp; Mia Stand Up to Trouble</span></a>
           </article>
-          <article class="card book-card">
+          <article class="card book-card" data-book-topics="courage future family" data-book-keywords="hope dreams future community confidence brave Uganda">
             <a href="https://www.amazon.com/dp/B0H7NLLPSX" style="align-self: center"><img class="book-cover" src="assets/books/ambroses-journey.jpg" alt="Cover of Ambrose’s Journey" width="265" height="342" loading="lazy"></a>
             <div class="tag">HOPE &amp; COMMUNITY</div>
             <h3><a href="https://www.amazon.com/dp/B0H7NLLPSX">Ambrose’s Journey</a></h3>
@@ -249,21 +293,21 @@
               <a class="book-link" href="https://www.amazon.com/dp/B0H7NLLPSX">View this book on Amazon<span class="sr-only">: Ambrose’s Journey</span></a>
             </div>
           </article>
-          <article class="card book-card">
+          <article class="card book-card" data-book-topics="family feelings" data-book-keywords="family connection support parents english kiswahili swahili">
             <a href="https://www.amazon.com/dp/B0GT8X7317" style="align-self: center"><img class="book-cover" src="assets/books/strong-families.jpg" alt="Cover of Strong Families / Familia Imara" width="1000" height="1293" loading="lazy"></a>
             <div class="tag">STRONGER TOGETHER</div>
             <h3><a href="https://www.amazon.com/dp/B0GT8X7317">Strong Families / Familia Imara</a></h3>
             <p>Explore family strength and taking on Trouble together in English and Kiswahili. A shared reading and coloring experience that invites families to talk about connection, support, and Personal Power.</p>
             <a class="book-link" href="https://www.amazon.com/dp/B0GT8X7317">View this book on Amazon<span class="sr-only">: Strong Families / Familia Imara</span></a>
           </article>
-          <article class="card book-card">
+          <article class="card book-card" data-book-topics="family feelings" data-book-keywords="Spanish español espanol family community connection">
             <a href="https://www.amazon.com/dp/B0GYD7FMCC" style="align-self: center"><img class="book-cover" src="assets/books/los-problemas.jpg" alt="Cover of Los problemas llegan al pueblo" width="1000" height="1293" loading="lazy"></a>
             <div class="tag">SPANISH EDITION</div>
             <h3><a href="https://www.amazon.com/dp/B0GYD7FMCC">Los problemas llegan al pueblo</a></h3>
             <p>Explore Trouble and Personal Power through a Spanish-language coloring book. Read, color, and start conversations about helpful choices and the strength of a community working together.</p>
             <a class="book-link" href="https://www.amazon.com/dp/B0GYD7FMCC">View this book on Amazon<span class="sr-only">: Los problemas llegan al pueblo</span></a>
           </article>
-          <article class="card book-card">
+          <article class="card book-card" data-book-topics="future courage" data-book-keywords="jobs careers work dreams confidence future">
             <div class="tag">EXPLORE YOUR FUTURE</div>
             <a href="https://www.amazon.com/dp/B0HCC4ZD51" style="align-self: center"><img class="book-cover" src="assets/books/trades-occupations.jpg" alt="Cover of The Trades, Occupations &amp; Trouble Monsters!" width="700" height="905" loading="lazy"></a>
             <h3><a href="https://www.amazon.com/dp/B0HCC4ZD51">The Trades, Occupations &amp; Trouble Monsters!</a></h3>
@@ -273,14 +317,14 @@
               <a class="book-link" href="https://www.amazon.com/dp/B0HCC4ZD51">View this book on Amazon<span class="sr-only">: The Trades, Occupations &amp; Trouble Monsters!</span></a>
             </div>
           </article>
-          <article class="card book-card">
+          <article class="card book-card" data-book-topics="feelings courage" data-book-keywords="frustration anger patience persistence video games gaming calming calm">
             <div class="tag">PATIENCE &amp; PERSISTENCE</div>
             <a href="https://www.amazon.com/dp/B0HK19NGK2" style="align-self: center"><img class="book-cover" src="assets/books/video-game-challenge.jpg" alt="Cover of The Frustration Monster and the Video Game Challenge" width="700" height="905" loading="lazy"></a>
             <h3><a href="https://www.amazon.com/dp/B0HK19NGK2">The Frustration Monster and the Video Game Challenge</a></h3>
             <p>When a video game becomes frustrating, Ethan faces a challenge beyond the screen. Explore taking a pause, practicing calming skills, and accepting support from family through a story about frustration and Personal Power.</p>
             <a class="book-link" href="https://www.amazon.com/dp/B0HK19NGK2">View this book on Amazon<span class="sr-only">: The Frustration Monster and the Video Game Challenge</span></a>
           </article>
-          <article class="card book-card">
+          <article class="card book-card" data-book-topics="friendship" data-book-keywords="friend friends inclusion deaf communication listening sign language">
             <div class="tag">FRIENDSHIP &amp; UNDERSTANDING</div>
             <a href="https://www.amazon.com/dp/B0H7DGC4RC" style="align-self: center"><img class="book-cover" src="assets/books/listening-with-our-eyes.jpg" alt="Cover of Listening With Our Eyes" width="700" height="905" loading="lazy"></a>
             <h3><a href="https://www.amazon.com/dp/B0H7DGC4RC">Listening With Our Eyes</a></h3>
@@ -297,6 +341,10 @@
         </div>
       </div>
     </section>
+
+    <div class="site-banner">
+      <img src="assets/family-success-banner.jpg" width="1671" height="941" loading="lazy" alt="Family Success Northwest. Mike Canfield, Executive Director. Sunset over the shoreline.">
+    </div>
 
     <section class="soft" id="personal-power">
       <div class="wrap">
@@ -482,6 +530,45 @@
     <p class="library-dialog-status" id="library-player-status" role="status" hidden>Unable to play this video. <a id="library-player-link">Open the video directly</a>.</p>
   </dialog>
   <script>
+    const bookForm = document.getElementById('book-finder-form');
+    const bookSearch = document.getElementById('book-search');
+    const bookTopic = document.getElementById('book-topic');
+    const bookCards = [...document.querySelectorAll('[data-book-topics]')];
+    const topicButtons = document.querySelectorAll('[data-book-topic]');
+    function normalizeBookText(text) {
+      return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    }
+    function filterBooks(moveToResults = true) {
+      const words = normalizeBookText(bookSearch.value.trim()).split(/\s+/).filter(Boolean);
+      const topic = bookTopic.value;
+      let visible = 0;
+      bookCards.forEach(card => {
+        const text = normalizeBookText(card.textContent + ' ' + card.dataset.bookKeywords);
+        const matches = (topic === 'all' || card.dataset.bookTopics.split(' ').includes(topic)) && words.every(word => text.includes(word));
+        card.hidden = !matches;
+        if (matches) visible++;
+      });
+      const isFiltered = words.length > 0 || topic !== 'all';
+      document.getElementById('book-results-count').textContent = isFiltered ? 'Showing ' + visible + ' of ' + bookCards.length + ' books' : 'Showing all ' + bookCards.length + ' books';
+      document.getElementById('book-empty').hidden = visible !== 0;
+      document.getElementById('book-reset').hidden = !isFiltered;
+      topicButtons.forEach(button => button.setAttribute('aria-pressed', button.dataset.bookTopic === topic));
+      if (moveToResults) {
+        const heading = document.getElementById('books-title');
+        heading.scrollIntoView({ block: 'start' });
+        heading.focus({ preventScroll: true });
+      }
+    }
+    bookForm.addEventListener('submit', event => { event.preventDefault(); filterBooks(); });
+    topicButtons.forEach(button => button.addEventListener('click', () => {
+      bookSearch.value = '';
+      bookTopic.value = button.dataset.bookTopic;
+      filterBooks();
+    }));
+    function resetBooks() { bookSearch.value = ''; bookTopic.value = 'all'; filterBooks(false); }
+    document.getElementById('book-reset').addEventListener('click', resetBooks);
+    document.querySelector('.caregiver-hero a[href="#books"]').addEventListener('click', resetBooks);
+
     const featuredPlayer = document.getElementById('wisdom-player');
     const libraryDialog = document.getElementById('library-dialog');
     const libraryPlayer = document.getElementById('library-player');
