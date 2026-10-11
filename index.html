@@ -96,6 +96,9 @@
     .book-cover { width: auto; max-width: 100%; height: 180px; object-fit: contain; align-self: center; margin-bottom: 24px; box-shadow: 0 6px 14px #173d5920; }
     .book-card h3 { margin-top: 8px; margin-bottom: 0; }
     .book-link { margin-top: auto; padding-top: 12px; font-weight: bold; }
+    .book-actions { margin-top: auto; padding-top: 12px; display: flex; flex-direction: column; gap: 10px; }
+    .book-actions .book-link { margin-top: 0; padding-top: 0; }
+    .book-video-link { font-weight: bold; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
     .tag { font-size: .8rem; font-weight: bold; color: var(--teal); }
     .soft { background: #eaf2ec; }
@@ -108,6 +111,57 @@
       font-size: 1.4rem;
       color: var(--blue);
       font-weight: bold;
+    }
+    .video-feature { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; border-radius: 18px; background: var(--blue); color: white; margin: 28px 0 40px; }
+    .video-feature-copy { padding: 38px; align-self: center; }
+    .video-feature-copy .eyebrow { color: var(--gold); }
+    .video-feature-copy h3 { color: white; font-size: clamp(2rem, 4vw, 3rem); margin: 14px 0; }
+    .video-feature-copy p { color: #dce7e9; }
+    .video-feature-copy .button { background: var(--gold); color: var(--blue); border: 0; cursor: pointer; font: inherit; font-weight: bold; margin-top: 14px; }
+    .video-feature-player { background: #102f44; display: grid; place-items: center; padding: 20px; }
+    .video-feature-player video { display: block; width: min(100%, 420px, 57.9167vh); height: auto; aspect-ratio: 834 / 1080; object-fit: contain; border-radius: 8px; }
+    .video-shelf { padding: 0; margin: 30px 0; }
+    .video-shelf-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 15px; margin-bottom: 14px; }
+    .video-shelf-heading h3 { margin: 0; font-size: 1.3rem; }
+    .video-shelf-heading span { color: #62716f; font-size: .8rem; }
+    .video-shelf-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+    .video-tile { border: 1px solid #dce4df; border-radius: 12px; overflow: hidden; background: white; }
+    .video-card-button { display: block; width: 100%; padding: 0; border: 0; background: white; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+    .video-card-button:hover { background: #f4f8f3; }
+    .video-card-button:focus-visible { outline: 3px solid #c15416; outline-offset: -3px; }
+    .video-art.has-poster { height: auto; aspect-ratio: 834 / 1080; }
+    .video-art.has-poster::before { display: none; }
+    .video-art img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .video-card-button .video-tile-copy h4 { color: var(--teal); }
+    .library-dialog { border: 0; padding: 0; border-radius: 14px; width: min(620px, 94vw); max-height: 94vh; background: var(--cream); color: var(--ink); }
+    .library-dialog::backdrop { background: #102f44bb; }
+    .library-dialog-header { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 16px 22px; }
+    .library-dialog-header h3 { margin: 0; }
+    .library-dialog-close { width: 38px; height: 38px; border: 0; border-radius: 50%; background: #eaf2ec; color: var(--blue); font-size: 24px; cursor: pointer; }
+    .library-dialog video { display: block; height: min(70vh, 680px); width: auto; max-width: 100%; margin: 0 auto 20px; aspect-ratio: 834 / 1080; object-fit: contain; }
+    .library-dialog.is-landscape { width: min(960px, 94vw); }
+    .library-dialog.is-landscape video { width: calc(100% - 40px); height: auto; max-height: 70vh; aspect-ratio: 16 / 9; }
+    .library-dialog.is-tall video { aspect-ratio: 9 / 16; }
+    .library-dialog-status { padding: 0 22px; font-size: .9rem; }
+    .video-art { height: 145px; display: grid; place-items: center; background: var(--tile-tone, #eaf2ec); color: var(--blue); position: relative; overflow: hidden; }
+    .video-art::before { content: ''; position: absolute; width: 130px; height: 130px; border: 1px solid #ffffffaa; border-radius: 50%; right: -30px; top: -40px; }
+    .video-art-symbol { font: bold 48px Georgia, serif; }
+    .video-art-label { position: absolute; right: 8px; bottom: 8px; padding: 2px 6px; background: #ffffffe0; font-size: .65rem; border-radius: 4px; }
+    .video-tile-copy { padding: 14px; }
+    .video-tile-copy h4 { color: var(--blue); margin: 0 0 8px; line-height: 1.3; }
+    .video-tile-copy p { font-size: .75rem; color: #62716f; margin: 0; }
+    .video-tile-copy button { background: transparent; padding: 0; border: 0; color: var(--teal); font: inherit; font-weight: bold; text-decoration: underline; cursor: pointer; }
+    .video-library-note { color: #62716f; font-size: .9rem; }
+    @media (max-width: 850px) {
+      .video-shelf-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 600px) {
+      .video-feature { grid-template-columns: 1fr; }
+      .video-feature-player { grid-row: 1; }
+      .video-feature-copy { padding: 26px; }
+      .video-shelf-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .video-art { height: 125px; }
+      .video-shelf-heading { flex-wrap: wrap; gap: 4px; }
     }
     footer { padding: 30px 0; background: var(--blue); color: white; }
     footer a { color: var(--gold); }
@@ -123,7 +177,7 @@
       <nav aria-label="Main navigation">
         <a href="#books">Books</a>
         <a href="#personal-power">Personal Power</a>
-        <a href="#wisdom">Wisdom Video</a>
+        <a href="#wisdom">Video Library</a>
         <a href="#families">For Families</a>
         <a href="#about">About Mike</a>
       </nav>
@@ -173,7 +227,10 @@
             <div class="tag">FAMILIES &amp; COMMUNITY</div>
             <h3><a href="https://www.amazon.com/dp/B0DC73Q7VK">Trouble Comes to Town</a></h3>
             <p>What happens when Trouble arrives in a community? This coloring book invites children and caring adults to notice challenges, talk about helpful choices, and discover the strength of standing together.</p>
-            <a class="book-link" href="https://www.amazon.com/dp/B0DC73Q7VK">View this book on Amazon<span class="sr-only">: Trouble Comes to Town</span></a>
+            <div class="book-actions">
+              <a class="book-video-link" href="assets/videos/trouble-comes-to-town.mp4" data-video-file="assets/videos/trouble-comes-to-town.mp4" data-video-title="Trouble Comes to Town" data-video-poster="assets/books/trouble-comes-to-town.png" data-video-aspect="tall" aria-haspopup="dialog">▶ Watch video<span class="sr-only">: Trouble Comes to Town</span></a>
+              <a class="book-link" href="https://www.amazon.com/dp/B0DC73Q7VK">View this book on Amazon<span class="sr-only">: Trouble Comes to Town</span></a>
+            </div>
           </article>
           <article class="card book-card">
             <a href="https://www.amazon.com/dp/B0GTDVYR6L" style="align-self: center"><img class="book-cover" src="assets/books/lilly-and-mia.jpg" alt="Cover of The Trouble Monsters: Lilly &amp; Mia Stand Up to Trouble" width="1000" height="1293" loading="lazy"></a>
@@ -187,7 +244,10 @@
             <div class="tag">HOPE &amp; COMMUNITY</div>
             <h3><a href="https://www.amazon.com/dp/B0H7NLLPSX">Ambrose’s Journey</a></h3>
             <p>A story of hope, courage, and community set in Uganda. Follow Ambrose’s journey and use coloring time to talk about challenges, dreams for the future, and the people who help us move forward.</p>
-            <a class="book-link" href="https://www.amazon.com/dp/B0H7NLLPSX">View this book on Amazon<span class="sr-only">: Ambrose’s Journey</span></a>
+            <div class="book-actions">
+              <a class="book-video-link" href="assets/videos/ambrose.mp4" data-video-file="assets/videos/ambrose.mp4" data-video-title="Ambrose’s Journey" data-video-poster="assets/videos/posters/ambrose.jpg" data-video-aspect="landscape" aria-haspopup="dialog">▶ Watch video<span class="sr-only">: Ambrose’s Journey</span></a>
+              <a class="book-link" href="https://www.amazon.com/dp/B0H7NLLPSX">View this book on Amazon<span class="sr-only">: Ambrose’s Journey</span></a>
+            </div>
           </article>
           <article class="card book-card">
             <a href="https://www.amazon.com/dp/B0GT8X7317" style="align-self: center"><img class="book-cover" src="assets/books/strong-families.jpg" alt="Cover of Strong Families / Familia Imara" width="1000" height="1293" loading="lazy"></a>
@@ -208,7 +268,10 @@
             <a href="https://www.amazon.com/dp/B0HCC4ZD51" style="align-self: center"><img class="book-cover" src="assets/books/trades-occupations.jpg" alt="Cover of The Trades, Occupations &amp; Trouble Monsters!" width="700" height="905" loading="lazy"></a>
             <h3><a href="https://www.amazon.com/dp/B0HCC4ZD51">The Trades, Occupations &amp; Trouble Monsters!</a></h3>
             <p>Discover trades and occupations through coloring, real-world work, and Personal Power. Meet the Trouble Monsters that can get in the way, explore helpful skills, and imagine what you could do in the future.</p>
-            <a class="book-link" href="https://www.amazon.com/dp/B0HCC4ZD51">View this book on Amazon<span class="sr-only">: The Trades, Occupations &amp; Trouble Monsters!</span></a>
+            <div class="book-actions">
+              <a class="book-video-link" href="assets/videos/trades-occupations.mp4" data-video-file="assets/videos/trades-occupations.mp4" data-video-title="The Trades, Occupations &amp; Trouble Monsters!" data-video-poster="assets/books/trades-occupations.jpg" data-video-aspect="tall" aria-haspopup="dialog">▶ Watch video<span class="sr-only">: The Trades, Occupations &amp; Trouble Monsters!</span></a>
+              <a class="book-link" href="https://www.amazon.com/dp/B0HCC4ZD51">View this book on Amazon<span class="sr-only">: The Trades, Occupations &amp; Trouble Monsters!</span></a>
+            </div>
           </article>
           <article class="card book-card">
             <div class="tag">PATIENCE &amp; PERSISTENCE</div>
@@ -275,12 +338,77 @@
       </div>
     </section>
 
-    <section id="wisdom" aria-label="Wisdom video">
+    <section id="wisdom" aria-labelledby="video-library-title">
       <div class="wrap">
-        <video controls playsinline preload="metadata" aria-label="Wisdom" style="display: block; width: min(100%, 420px, 42.1875vh); height: auto; margin: auto; border-radius: 14px; background: #000;">
-          <source src="https://github.com/Mkbeth55/mike_canfield_website/releases/download/wisdom-video/Wisdom.mp4" type="video/mp4">
-          Your browser does not support embedded video.
-        </video>
+        <div class="eyebrow">Personal Power videos</div>
+        <h2 id="video-library-title">Little stories. Lasting skills.</h2>
+        <p class="intro">Find a story for the moment you’re in. Watch together, get curious, and bring a little Personal Power into your day.</p>
+        <div class="video-feature">
+          <div class="video-feature-copy">
+            <div class="eyebrow">Featured story · Wisdom</div>
+            <h3>Stop. Think.<br>Choose. Grow.</h3>
+            <p>Meet Wisdom, a Personal Power Pal who helps us ask questions and make kind choices.</p>
+            <button class="button" type="button" data-play-wisdom>▶ Watch Wisdom · 1:01</button>
+          </div>
+          <div class="video-feature-player">
+            <video id="wisdom-player" controls playsinline preload="metadata" poster="assets/videos/posters/wisdom.jpg" aria-label="Wisdom" tabindex="0">
+              <source src="assets/videos/wisdom-cropped.mp4" type="video/mp4">
+              Your browser does not support embedded video. <a href="assets/videos/wisdom-cropped.mp4">Open the Wisdom video</a>.
+            </video>
+          </div>
+        </div>
+        <div class="eyebrow">Explore by topic</div>
+        <p class="video-library-note">Explore nine videos now, with more stories coming soon.</p>
+        <section class="video-shelf" aria-labelledby="video-topic-0">
+          <div class="video-shelf-heading"><h3 id="video-topic-0">Think &amp; choose</h3><span>2 available · 3 coming soon</span></div>
+          <div class="video-shelf-grid">
+            <article class="video-tile"><button class="video-card-button" type="button" data-video-file="assets/videos/wisdom-cropped.mp4" data-video-title="Wisdom" data-video-poster="assets/videos/posters/wisdom.jpg" aria-label="Play Wisdom"><div class="video-art has-poster"><img src="assets/videos/posters/wisdom.jpg" alt="" width="834" height="1080" loading="lazy"><span class="video-art-label">1:01</span></div><div class="video-tile-copy"><h4>▶ Wisdom</h4><p>The featured story</p></div></button></article>
+            <article class="video-tile"><button class="video-card-button" type="button" data-video-file="assets/videos/assumption-cropped.mp4" data-video-title="Assumption" data-video-poster="assets/videos/posters/assumption.jpg" aria-label="Play Assumption"><div class="video-art has-poster"><img src="assets/videos/posters/assumption.jpg" alt="" width="834" height="1080" loading="lazy"><span class="video-art-label">1:14</span></div><div class="video-tile-copy"><h4>▶ Assumption</h4><p>Watch this story</p></div></button></article>
+            <article class="video-tile" style="--tile-tone: #dcecc9"><div class="video-art"><span class="video-art-symbol" aria-hidden="true">✦</span><span class="video-art-label">Coming soon</span></div><div class="video-tile-copy"><h4>Story 3</h4><p>A new Personal Power story</p></div></article>
+            <article class="video-tile" style="--tile-tone: #dcecc9"><div class="video-art"><span class="video-art-symbol" aria-hidden="true">✦</span><span class="video-art-label">Coming soon</span></div><div class="video-tile-copy"><h4>Story 4</h4><p>A new Personal Power story</p></div></article>
+            <article class="video-tile" style="--tile-tone: #dcecc9"><div class="video-art"><span class="video-art-symbol" aria-hidden="true">✦</span><span class="video-art-label">Coming soon</span></div><div class="video-tile-copy"><h4>Story 5</h4><p>A new Personal Power story</p></div></article>
+          </div>
+        </section>
+        <section class="video-shelf" aria-labelledby="video-topic-1">
+          <div class="video-shelf-heading"><h3 id="video-topic-1">Feelings &amp; calm</h3><span>1 available · 4 coming soon</span></div>
+          <div class="video-shelf-grid">
+            <article class="video-tile"><button class="video-card-button" type="button" data-video-file="assets/videos/isolation-cropped.mp4" data-video-title="Isolation" data-video-poster="assets/videos/posters/isolation.jpg" aria-label="Play Isolation"><div class="video-art has-poster"><img src="assets/videos/posters/isolation.jpg" alt="" width="834" height="1080" loading="lazy"><span class="video-art-label">1:05</span></div><div class="video-tile-copy"><h4>▶ Isolation</h4><p>Watch this story</p></div></button></article>
+            <article class="video-tile" style="--tile-tone: #dceaf1"><div class="video-art"><span class="video-art-symbol" aria-hidden="true">≈</span><span class="video-art-label">Coming soon</span></div><div class="video-tile-copy"><h4>Story 7</h4><p>A new Personal Power story</p></div></article>
+            <article class="video-tile" style="--tile-tone: #dceaf1"><div class="video-art"><span class="video-art-symbol" aria-hidden="true">≈</span><span class="video-art-label">Coming soon</span></div><div class="video-tile-copy"><h4>Story 8</h4><p>A new Personal Power story</p></div></article>
+            <article class="video-tile" style="--tile-tone: #dceaf1"><div class="video-art"><span class="video-art-symbol" aria-hidden="true">≈</span><span class="video-art-label">Coming soon</span></div><div class="video-tile-copy"><h4>Story 9</h4><p>A new Personal Power story</p></div></article>
+            <article class="video-tile" style="--tile-tone: #dceaf1"><div class="video-art"><span class="video-art-symbol" aria-hidden="true">≈</span><span class="video-art-label">Coming soon</span></div><div class="video-tile-copy"><h4>Story 10</h4><p>A new Personal Power story</p></div></article>
+          </div>
+        </section>
+        <section class="video-shelf" aria-labelledby="video-topic-2">
+          <div class="video-shelf-heading"><h3 id="video-topic-2">Kindness &amp; connection</h3><span>2 available · 3 coming soon</span></div>
+          <div class="video-shelf-grid">
+            <article class="video-tile"><button class="video-card-button" type="button" data-video-file="assets/videos/connection-cropped.mp4" data-video-title="Connection" data-video-poster="assets/videos/posters/connection.jpg" aria-label="Play Connection"><div class="video-art has-poster"><img src="assets/videos/posters/connection.jpg" alt="" width="834" height="1080" loading="lazy"><span class="video-art-label">0:56</span></div><div class="video-tile-copy"><h4>▶ Connection</h4><p>Watch this story</p></div></button></article>
+            <article class="video-tile"><button class="video-card-button" type="button" data-video-file="assets/videos/kindness-cropped.mp4" data-video-title="Kindness" data-video-poster="assets/videos/posters/kindness.jpg" aria-label="Play Kindness"><div class="video-art has-poster"><img src="assets/videos/posters/kindness.jpg" alt="" width="834" height="1080" loading="lazy"><span class="video-art-label">0:59</span></div><div class="video-tile-copy"><h4>▶ Kindness</h4><p>Watch this story</p></div></button></article>
+            <article class="video-tile" style="--tile-tone: #f9e2cc"><div class="video-art"><span class="video-art-symbol" aria-hidden="true">♡</span><span class="video-art-label">Coming soon</span></div><div class="video-tile-copy"><h4>Story 13</h4><p>A new Personal Power story</p></div></article>
+            <article class="video-tile" style="--tile-tone: #f9e2cc"><div class="video-art"><span class="video-art-symbol" aria-hidden="true">♡</span><span class="video-art-label">Coming soon</span></div><div class="video-tile-copy"><h4>Story 14</h4><p>A new Personal Power story</p></div></article>
+            <article class="video-tile" style="--tile-tone: #f9e2cc"><div class="video-art"><span class="video-art-symbol" aria-hidden="true">♡</span><span class="video-art-label">Coming soon</span></div><div class="video-tile-copy"><h4>Story 15</h4><p>A new Personal Power story</p></div></article>
+          </div>
+        </section>
+        <section class="video-shelf" aria-labelledby="video-topic-3">
+          <div class="video-shelf-heading"><h3 id="video-topic-3">Courage &amp; confidence</h3><span>4 available · 1 coming soon</span></div>
+          <div class="video-shelf-grid">
+            <article class="video-tile"><button class="video-card-button" type="button" data-video-file="assets/videos/confidence-female-cropped.mp4" data-video-title="Confidence (Female)" data-video-poster="assets/videos/posters/confidence-female.jpg" aria-label="Play Confidence (Female)"><div class="video-art has-poster"><img src="assets/videos/posters/confidence-female.jpg" alt="" width="834" height="1080" loading="lazy"><span class="video-art-label">0:57</span></div><div class="video-tile-copy"><h4>▶ Confidence (Female)</h4><p>Watch this story</p></div></button></article>
+            <article class="video-tile"><button class="video-card-button" type="button" data-video-file="assets/videos/confidence-male-cropped.mp4" data-video-title="Confidence (Male)" data-video-poster="assets/videos/posters/confidence-male.jpg" aria-label="Play Confidence (Male)"><div class="video-art has-poster"><img src="assets/videos/posters/confidence-male.jpg" alt="" width="834" height="1080" loading="lazy"><span class="video-art-label">0:57</span></div><div class="video-tile-copy"><h4>▶ Confidence (Male)</h4><p>Watch this story</p></div></button></article>
+            <article class="video-tile"><button class="video-card-button" type="button" data-video-file="assets/videos/courage-cropped.mp4" data-video-title="Courage" data-video-poster="assets/videos/posters/courage.jpg" aria-label="Play Courage"><div class="video-art has-poster"><img src="assets/videos/posters/courage.jpg" alt="" width="834" height="1080" loading="lazy"><span class="video-art-label">1:03</span></div><div class="video-tile-copy"><h4>▶ Courage</h4><p>Watch this story</p></div></button></article>
+            <article class="video-tile"><button class="video-card-button" type="button" data-video-file="assets/videos/persistence-cropped.mp4" data-video-title="Persistence" data-video-poster="assets/videos/posters/persistence.jpg" aria-label="Play Persistence"><div class="video-art has-poster"><img src="assets/videos/posters/persistence.jpg" alt="" width="834" height="1080" loading="lazy"><span class="video-art-label">1:03</span></div><div class="video-tile-copy"><h4>▶ Persistence</h4><p>Watch this story</p></div></button></article>
+            <article class="video-tile" style="--tile-tone: #f4e6ae"><div class="video-art"><span class="video-art-symbol" aria-hidden="true">☀</span><span class="video-art-label">Coming soon</span></div><div class="video-tile-copy"><h4>Story 20</h4><p>A new Personal Power story</p></div></article>
+          </div>
+        </section>
+        <section class="video-shelf" aria-labelledby="video-topic-4">
+          <div class="video-shelf-heading"><h3 id="video-topic-4">Family &amp; everyday life</h3><span>5 coming soon</span></div>
+          <div class="video-shelf-grid">
+            <article class="video-tile" style="--tile-tone: #e9def0"><div class="video-art"><span class="video-art-symbol" aria-hidden="true">⌂</span><span class="video-art-label">Coming soon</span></div><div class="video-tile-copy"><h4>Story 21</h4><p>A new Personal Power story</p></div></article>
+            <article class="video-tile" style="--tile-tone: #e9def0"><div class="video-art"><span class="video-art-symbol" aria-hidden="true">⌂</span><span class="video-art-label">Coming soon</span></div><div class="video-tile-copy"><h4>Story 22</h4><p>A new Personal Power story</p></div></article>
+            <article class="video-tile" style="--tile-tone: #e9def0"><div class="video-art"><span class="video-art-symbol" aria-hidden="true">⌂</span><span class="video-art-label">Coming soon</span></div><div class="video-tile-copy"><h4>Story 23</h4><p>A new Personal Power story</p></div></article>
+            <article class="video-tile" style="--tile-tone: #e9def0"><div class="video-art"><span class="video-art-symbol" aria-hidden="true">⌂</span><span class="video-art-label">Coming soon</span></div><div class="video-tile-copy"><h4>Story 24</h4><p>A new Personal Power story</p></div></article>
+            <article class="video-tile" style="--tile-tone: #e9def0"><div class="video-art"><span class="video-art-symbol" aria-hidden="true">⌂</span><span class="video-art-label">Coming soon</span></div><div class="video-tile-copy"><h4>Story 25</h4><p>A new Personal Power story</p></div></article>
+          </div>
+        </section>
       </div>
     </section>
 
@@ -348,5 +476,49 @@
       </p>
     </div>
   </footer>
+  <dialog class="library-dialog" id="library-dialog" aria-labelledby="library-dialog-title">
+    <div class="library-dialog-header"><h3 id="library-dialog-title">Personal Power video</h3><button class="library-dialog-close" type="button" aria-label="Close video">×</button></div>
+    <video id="library-player" controls playsinline preload="none" aria-label="Selected Personal Power video"></video>
+    <p class="library-dialog-status" id="library-player-status" role="status" hidden>Unable to play this video. <a id="library-player-link">Open the video directly</a>.</p>
+  </dialog>
+  <script>
+    const featuredPlayer = document.getElementById('wisdom-player');
+    const libraryDialog = document.getElementById('library-dialog');
+    const libraryPlayer = document.getElementById('library-player');
+    const playerStatus = document.getElementById('library-player-status');
+    document.querySelectorAll('[data-play-wisdom]').forEach(button => {
+      button.addEventListener('click', () => {
+        featuredPlayer.scrollIntoView({ block: 'center' });
+        featuredPlayer.focus({ preventScroll: true });
+        featuredPlayer.play().catch(() => {});
+      });
+    });
+    document.querySelectorAll('[data-video-file]').forEach(button => {
+      button.addEventListener('click', event => {
+        event.preventDefault();
+        featuredPlayer.pause();
+        libraryPlayer.pause();
+        libraryDialog.classList.toggle('is-landscape', button.dataset.videoAspect === 'landscape');
+        libraryDialog.classList.toggle('is-tall', button.dataset.videoAspect === 'tall');
+        document.getElementById('library-dialog-title').textContent = button.dataset.videoTitle;
+        libraryPlayer.setAttribute('aria-label', button.dataset.videoTitle);
+        libraryPlayer.poster = button.dataset.videoPoster;
+        playerStatus.hidden = true;
+        document.getElementById('library-player-link').href = button.dataset.videoFile;
+        libraryPlayer.src = button.dataset.videoFile;
+        libraryDialog.showModal();
+        libraryPlayer.play().catch(() => {});
+      });
+    });
+    libraryPlayer.addEventListener('error', () => {
+      if (libraryPlayer.getAttribute('src')) playerStatus.hidden = false;
+    });
+    document.querySelector('.library-dialog-close').addEventListener('click', () => libraryDialog.close());
+    libraryDialog.addEventListener('close', () => {
+      libraryPlayer.pause();
+      libraryPlayer.removeAttribute('src');
+      libraryPlayer.load();
+    });
+  </script>
 </body>
 </html>
