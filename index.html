@@ -211,6 +211,18 @@
     }
     footer { padding: 30px 0; background: var(--blue); color: white; }
     footer a { color: var(--gold); }
+    .support-work { background: var(--blue); color: white; }
+    .support-layout { display: grid; grid-template-columns: 1.6fr 1fr; gap: 40px; align-items: center; }
+    .support-work .eyebrow { color: var(--gold); }
+    .support-work h2 { color: white; font-size: clamp(2rem, 4vw, 2.7rem); margin: 15px 0; }
+    .support-work p { color: #e0ebed; max-width: 650px; }
+    .support-action { text-align: center; }
+    .support-action .button { background: var(--gold); color: var(--blue); }
+    .support-action p { font-size: .85rem; margin: 14px 0 0; }
+    @media (max-width: 700px) {
+      .support-layout { grid-template-columns: 1fr; gap: 22px; }
+      .support-action { text-align: left; }
+    }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
     }
@@ -226,6 +238,7 @@
         <a href="#wisdom">Video Library</a>
         <a href="#families">For Families</a>
         <a href="#about">About Mike</a>
+        <a href="#support">Support Our Work</a>
       </nav>
     </div>
   </header>
@@ -537,6 +550,19 @@
         <a class="button" href="https://www.familysuccessnw.org/">
           Visit Family Success Northwest
         </a>
+      </div>
+    </section>
+    <section class="support-work" id="support" aria-labelledby="support-title">
+      <div class="wrap support-layout">
+        <div>
+          <div class="eyebrow">Be part of Family Success Northwest</div>
+          <h2 id="support-title">Help turn small moments into brighter futures.</h2>
+          <p>Every child deserves caring adults who feel supported, connected, and ready for life’s challenges. Your gift to Family Success Northwest helps provide education, resources, and support for parents and caregivers—so more families can grow stronger together.</p>
+        </div>
+        <div class="support-action">
+          <a class="button" href="https://familysuccessnw.org/be-a-sponsor">Donate to Family Success Northwest</a>
+          <p>Give through Family Success Northwest’s donation page.</p>
+        </div>
       </div>
     </section>
   </main>
