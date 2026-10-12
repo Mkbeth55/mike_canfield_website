@@ -155,14 +155,18 @@
       color: var(--blue);
       font-weight: bold;
     }
-    .video-feature { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; border-radius: 18px; background: var(--blue); color: white; margin: 28px 0 40px; }
+    .video-feature { display: grid; grid-template-columns: .85fr 1.5fr; overflow: hidden; border-radius: 18px; background: var(--blue); color: white; margin: 28px 0 40px; }
     .video-feature-copy { padding: 38px; align-self: center; }
     .video-feature-copy .eyebrow { color: var(--gold); }
     .video-feature-copy h3 { color: white; font-size: clamp(2rem, 4vw, 3rem); margin: 14px 0; }
     .video-feature-copy p { color: #dce7e9; }
     .video-feature-copy .button { background: var(--gold); color: var(--blue); border: 0; cursor: pointer; font: inherit; font-weight: bold; margin-top: 14px; }
-    .video-feature-player { background: #102f44; display: grid; place-items: center; padding: 20px; }
+    .video-feature-player { background: #102f44; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; place-items: center; padding: 20px; }
     .video-feature-player video { display: block; width: min(100%, 420px, 57.9167vh); height: auto; aspect-ratio: 834 / 1080; object-fit: contain; border-radius: 8px; }
+    .wisdom-companion { margin: 0; width: min(100%, 420px, 57.9167vh); }
+    .wisdom-companion img { display: block; width: 100%; height: auto; border-radius: 8px; }
+    @media (max-width: 900px) { .video-feature { grid-template-columns: 1fr; } }
+    @media (max-width: 450px) { .video-feature-player { grid-template-columns: 1fr; } }
     .video-shelf { padding: 0; margin: 30px 0; }
     .video-shelf-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 15px; margin-bottom: 14px; }
     .video-shelf-heading h3 { margin: 0; font-size: 1.3rem; }
@@ -430,6 +434,9 @@
               <source src="assets/videos/wisdom-cropped.mp4" type="video/mp4">
               Your browser does not support embedded video. <a href="assets/videos/wisdom-cropped.mp4">Open the Wisdom video</a>.
             </video>
+            <figure class="wisdom-companion">
+              <img src="assets/wisdom-companion.png" width="1102" height="1427" loading="lazy" alt="A purple Wisdom Personal Power Pal reading a book, with reminders to think, listen, learn, consider, and choose.">
+            </figure>
           </div>
         </div>
         <div class="eyebrow">Explore by topic</div>
