@@ -155,23 +155,20 @@
       color: var(--blue);
       font-weight: bold;
     }
-    .video-feature { display: grid; grid-template-columns: .85fr 1.5fr; overflow: hidden; border-radius: 18px; background: var(--blue); color: white; margin: 28px 0 40px; }
+    .video-feature { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; border-radius: 18px; background: var(--blue); color: white; margin: 28px 0 40px; }
     .video-feature-copy { padding: 38px; align-self: center; }
     .video-feature-copy .eyebrow { color: var(--gold); }
     .video-feature-copy h3 { color: white; font-size: clamp(2rem, 4vw, 3rem); margin: 14px 0; }
     .video-feature-copy p { color: #dce7e9; }
     .video-feature-copy .button { background: var(--gold); color: var(--blue); border: 0; cursor: pointer; font: inherit; font-weight: bold; margin-top: 14px; }
-    .video-feature-player { background: #102f44; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; place-items: center; padding: 20px; }
+    .video-feature-player { background: #102f44; display: grid; place-items: center; padding: 20px; }
     .video-feature-player video { display: block; width: min(100%, 420px, 57.9167vh); height: auto; aspect-ratio: 834 / 1080; object-fit: contain; border-radius: 8px; }
-    .wisdom-companion { margin: 0; width: min(100%, 420px, 57.9167vh); }
-    .wisdom-companion img { display: block; width: 100%; height: auto; border-radius: 8px; }
-    @media (max-width: 900px) { .video-feature { grid-template-columns: 1fr; } }
-    @media (max-width: 450px) { .video-feature-player { grid-template-columns: 1fr; } }
     .video-shelf { padding: 0; margin: 30px 0; }
     .video-shelf-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 15px; margin-bottom: 14px; }
     .video-shelf-heading h3 { margin: 0; font-size: 1.3rem; }
     .video-shelf-heading span { color: #62716f; font-size: .8rem; }
     .video-shelf-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+    .wisdom-shelf { grid-template-columns: repeat(6, minmax(0, 1fr)); }
     .video-tile { border: 1px solid #dce4df; border-radius: 12px; overflow: hidden; background: white; }
     .video-card-button { display: block; width: 100%; padding: 0; border: 0; background: white; color: inherit; font: inherit; text-align: left; cursor: pointer; }
     .video-card-button:hover { background: #f4f8f3; }
@@ -201,12 +198,14 @@
     .video-library-note { color: #62716f; font-size: .9rem; }
     @media (max-width: 850px) {
       .video-shelf-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .wisdom-shelf { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
     @media (max-width: 600px) {
       .video-feature { grid-template-columns: 1fr; }
       .video-feature-player { grid-row: 1; }
       .video-feature-copy { padding: 26px; }
       .video-shelf-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .wisdom-shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .video-art { height: 125px; }
       .video-shelf-heading { flex-wrap: wrap; gap: 4px; }
     }
@@ -434,17 +433,15 @@
               <source src="assets/videos/wisdom-cropped.mp4" type="video/mp4">
               Your browser does not support embedded video. <a href="assets/videos/wisdom-cropped.mp4">Open the Wisdom video</a>.
             </video>
-            <figure class="wisdom-companion">
-              <img src="assets/wisdom-companion.png" width="1102" height="1427" loading="lazy" alt="A purple Wisdom Personal Power Pal reading a book, with reminders to think, listen, learn, consider, and choose.">
-            </figure>
           </div>
         </div>
         <div class="eyebrow">Explore by topic</div>
         <p class="video-library-note">Explore fourteen videos now, with more stories coming soon.</p>
         <section class="video-shelf" aria-labelledby="video-topic-0">
-          <div class="video-shelf-heading"><h3 id="video-topic-0">Think &amp; choose</h3><span>5 available</span></div>
-          <div class="video-shelf-grid">
+          <div class="video-shelf-heading"><h3 id="video-topic-0">Think &amp; Choose</h3><span>5 available</span></div>
+          <div class="video-shelf-grid wisdom-shelf">
             <article class="video-tile"><button class="video-card-button" type="button" data-video-file="assets/videos/wisdom-cropped.mp4" data-video-title="Wisdom" data-video-poster="assets/videos/posters/wisdom.jpg" aria-label="Play Wisdom"><div class="video-art has-poster"><img src="assets/videos/posters/wisdom.jpg" alt="" width="834" height="1080" loading="lazy"><span class="video-art-label">1:01</span></div><div class="video-tile-copy"><h4>▶ Wisdom</h4><p>The featured story</p></div></button></article>
+            <article class="video-tile wisdom-art-tile"><div class="video-art has-poster"><img src="assets/wisdom-companion.png" alt="A purple Wisdom Personal Power Pal reading a book, with reminders to think, listen, learn, consider, and choose." width="1102" height="1427" loading="lazy"><span class="video-art-label">Illustration</span></div><div class="video-tile-copy"><h4>Wisdom</h4><p>Think, listen, learn, and choose.</p></div></article>
             <article class="video-tile"><button class="video-card-button" type="button" data-video-file="assets/videos/assumption-cropped.mp4" data-video-title="Assumption" data-video-poster="assets/videos/posters/assumption.jpg" aria-label="Play Assumption"><div class="video-art has-poster"><img src="assets/videos/posters/assumption.jpg" alt="" width="834" height="1080" loading="lazy"><span class="video-art-label">1:14</span></div><div class="video-tile-copy"><h4>▶ Assumption</h4><p>Watch this story</p></div></button></article>
             <article class="video-tile"><button class="video-card-button" type="button" data-video-file="assets/videos/trouble-monster-cropped.mp4" data-video-title="Trouble Monster" data-video-poster="assets/videos/posters/trouble-monster.jpg" data-video-ratio="834 / 1080" aria-label="Play Trouble Monster"><div class="video-art has-poster" style="aspect-ratio: 834 / 1080"><img src="assets/videos/posters/trouble-monster.jpg" alt="" width="834" height="1080" loading="lazy"><span class="video-art-label">1:00</span></div><div class="video-tile-copy"><h4>▶ Trouble Monster</h4><p>Watch this story</p></div></button></article>
             <article class="video-tile"><button class="video-card-button" type="button" data-video-file="assets/videos/doubt-cropped.mp4" data-video-title="Doubt Monster" data-video-poster="assets/videos/posters/doubt.jpg" data-video-ratio="552 / 720" aria-label="Play Doubt Monster"><div class="video-art has-poster" style="aspect-ratio: 552 / 720"><img src="assets/videos/posters/doubt.jpg" alt="" width="552" height="720" loading="lazy"><span class="video-art-label">0:49</span></div><div class="video-tile-copy"><h4>▶ Doubt Monster</h4><p>Watch this story</p></div></button></article>
