@@ -2,7 +2,7 @@
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Drawing
 $root = Split-Path $PSScriptRoot -Parent
-$html = [IO.File]::ReadAllText((Join-Path $root 'index.html'))
+$html = [IO.File]::ReadAllText((Join-Path $root 'posters.html'))
 $posters = [regex]::Matches($html, 'href="assets/(?:printable/)?([^"/]+)\.(?:png|pdf)" download="([^"]+)-Poster\.(?:png|pdf)"')
 $output = Join-Path $root 'assets/printable'
 [IO.Directory]::CreateDirectory($output) | Out-Null
