@@ -220,7 +220,13 @@
 nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 5px; }
 .poster-page-title { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.2; color: var(--blue); }
 .video-art.portrait-preview img { position: absolute; inset: 0; }
-.free-book .book-cover { height: 240px; }
+.free-book-feature { display: grid; grid-template-columns: minmax(250px, 340px) 1fr; gap: 48px; align-items: center; }
+.free-book-cover .book-cover { display: block; width: 100%; height: auto; max-height: 390px; margin: 0 auto 20px; box-shadow: none; }
+.free-book-description h2 { margin-top: 12px; }
+@media (max-width: 700px) {
+  .free-book-feature { grid-template-columns: 1fr; gap: 24px; }
+  .free-book-cover { width: min(340px, 100%); margin: auto; }
+}
 .free-book-buttons { display: flex; flex-direction: column; gap: 12px; }
 .free-book-buttons .button { text-align: center; }
 .free-book-note { font-size: .8rem; color: #52675f; }
