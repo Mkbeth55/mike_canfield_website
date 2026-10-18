@@ -219,3 +219,4 @@
     }
 nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 5px; }
 .poster-page-title { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.2; color: var(--blue); }
+.video-art.portrait-preview img { position: absolute; inset: 0; }
