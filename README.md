@@ -9,6 +9,10 @@ Poster downloads use single-page US Letter PDFs in `assets/printable/`. The full
 artwork fits inside half-inch margins. Choose **Fit to page** when printing on A4
 or another paper size.
 
+Each poster has a color download and a black-line coloring download. Color source
+images are in `assets/`; matching black-line artwork is in `assets/coloring/`.
+Black-line PDF filenames end in `-blackline.pdf`.
+
 After updating poster PNGs, rebuild the printable files on Windows:
 
 ```powershell

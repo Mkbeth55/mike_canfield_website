@@ -11,7 +11,12 @@ $culture = [Globalization.CultureInfo]::InvariantCulture
 $jpegCodec = [Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object MimeType -eq 'image/jpeg'
 foreach ($poster in $posters) {
     $slug = $poster.Groups[1].Value
-    $source = [Drawing.Image]::FromFile((Join-Path $root "assets/$slug.png"))
+    $sourcePath = if ($slug.EndsWith('-blackline')) {
+        Join-Path $root ("assets/coloring/" + $slug.Substring(0, $slug.Length - 10) + '.png')
+    } else {
+        Join-Path $root "assets/$slug.png"
+    }
+    $source = [Drawing.Image]::FromFile($sourcePath)
     $bitmap = New-Object Drawing.Bitmap($source.Width, $source.Height)
     $graphics = [Drawing.Graphics]::FromImage($bitmap)
     $graphics.Clear([Drawing.Color]::White)

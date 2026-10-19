@@ -230,3 +230,5 @@ nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 
 .free-book-buttons { display: flex; flex-direction: column; gap: 12px; }
 .free-book-buttons .button { text-align: center; }
 .free-book-note { font-size: .8rem; color: #52675f; }
+.poster-downloads { display: flex; flex-direction: column; gap: 10px; margin: 12px 0 18px; }
+.poster-downloads a { font-weight: bold; }

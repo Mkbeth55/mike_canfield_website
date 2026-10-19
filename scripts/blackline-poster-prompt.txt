@@ -1,0 +1,6 @@
+﻿Black-line poster artwork was created with the built-in image-generation tool.
+Input 1: the matching original color PNG in assets/.
+Input 2: the approved Laziness Monster black-line sample (assets/coloring/laziness-monster.png).
+
+Prompt used for each remaining poster:
+Use case: style-transfer. Edit target: Image 1, the original color poster. Style reference: Image 2, the approved Laziness black-line coloring sample. Convert ONLY Image 1 into a faithful printable children's coloring page matching Image 2's clean black outlines and white open spaces. Preserve Image 1's own character, complete composition, signs, all speech bubbles and ALL words verbatim, title and footer. Do not use the Laziness character or wording. Every formerly colored region should be WHITE inside sparse clean black contour lines; no grayscale shading, gradients, crosshatching, shadows, solid fur, or dark backgrounds. Hollow outline title letters for coloring; body text black and perfectly legible. Simplify tiny fur texture for children. Keep the entire artwork and full border inside the image with a slim white safety margin; no cropped text or details. Pure white paper, portrait proportions of the original.
