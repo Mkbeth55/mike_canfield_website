@@ -7,10 +7,11 @@ free PDF downloads and links to the matching color posters. All pages share
 `assets/site.css`. Poster video playback is handled
 by `assets/posters.js`.
 
-`puzzle.html` offers Excuse Monster and Courage jigsaws, linked from the main
+`puzzle.html` offers Excuse Monster, Courage, and Calm jigsaws, linked from the main
 navigation and their poster cards. Use `puzzle.html?poster=courage` to open
-Courage directly. It uses the original `assets/excuse-monster.png` and
-`assets/courage-puzzle.png` artwork, `assets/puzzle.css`, and `assets/puzzle.js`, with no external libraries
+Courage directly, or `puzzle.html?poster=calm` for Calm. It uses the original
+`assets/excuse-monster.png`, `assets/courage-puzzle.png`, and `assets/calm-puzzle.png`
+artwork, `assets/puzzle.css`, and `assets/puzzle.js`, with no external libraries
 or server requirements. Visitors can choose 12, 24, or 48 interlocking pieces,
 drag or select-and-place them, and use a reference picture or faint board guide.
 Changing poster, changing difficulty, or choosing Start over resets the current puzzle.

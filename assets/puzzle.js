@@ -5,7 +5,8 @@
   const levels = {12: [3, 4], 24: [4, 6], 48: [6, 8]};
   const posters = {
     excuse: {name: 'The Excuse Monster', src: 'assets/excuse-monster.png', link: 'posters.html#excuse-monster'},
-    courage: {name: 'Courage', src: 'assets/courage-puzzle.png', link: 'assets/courage-puzzle.png'}
+    courage: {name: 'Courage', src: 'assets/courage-puzzle.png', link: 'assets/courage-puzzle.png'},
+    calm: {name: 'Calm', src: 'assets/calm-puzzle.png', link: 'assets/calm-puzzle.png'}
   };
   let poster = posters.excuse, imageRatio = 2 / 3, loadVersion = 0;
   let cols, rows, total, placed = 0, selected = null, drag = null, ready = false;
@@ -152,7 +153,7 @@
     $('puzzle-title').textContent = `${poster.name} Jigsaw`;
     document.title = `${poster.name} Jigsaw | Mike Canfield`;
     $('poster-link').href = poster.link;
-    $('poster-link').textContent = `Explore ${poster.name === 'Courage' ? 'the Courage' : poster.name} poster`;
+    $('poster-link').textContent = `Explore ${poster.name === 'The Excuse Monster' ? poster.name : 'the ' + poster.name} poster`;
     status.textContent = `Loading ${poster.name}…`;
     const image = new Image();
     image.onload = () => {
