@@ -7,6 +7,14 @@ free PDF downloads and links to the matching color posters. All pages share
 `assets/site.css`. Poster video playback is handled
 by `assets/posters.js`.
 
+`puzzle.html` offers Excuse Monster and Courage jigsaws, linked from the main
+navigation and their poster cards. Use `puzzle.html?poster=courage` to open
+Courage directly. It uses the original `assets/excuse-monster.png` and
+`assets/courage-puzzle.png` artwork, `assets/puzzle.css`, and `assets/puzzle.js`, with no external libraries
+or server requirements. Visitors can choose 12, 24, or 48 interlocking pieces,
+drag or select-and-place them, and use a reference picture or faint board guide.
+Changing poster, changing difficulty, or choosing Start over resets the current puzzle.
+
 Poster downloads use single-page US Letter PDFs in `assets/printable/`. The full
 artwork fits inside half-inch margins. Choose **Fit to page** when printing on A4
 or another paper size.
