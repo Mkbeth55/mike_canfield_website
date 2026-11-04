@@ -201,7 +201,10 @@
     </section>
 
     <div class="site-banner">
-      <img src="assets/family-success-banner.jpg" width="1671" height="941" loading="lazy" alt="Family Success Northwest. Mike Canfield, Executive Director. Sunset over the shoreline.">
+      <video id="shoreline-banner" autoplay muted loop playsinline controls preload="metadata" poster="assets/family-success-banner.jpg" width="1890" height="1080" aria-label="Family Success Northwest. Mike Canfield, Executive Director. Animated sunset waves along the shoreline.">
+        <source src="assets/videos/family-success-shoreline.mp4" type="video/mp4">
+        <img src="assets/family-success-banner.jpg" width="1671" height="941" alt="Family Success Northwest. Mike Canfield, Executive Director. Sunset over the shoreline.">
+      </video>
     </div>
 
     <section class="soft" id="personal-power">
@@ -379,6 +382,9 @@
     const openingPlayer = document.getElementById('opening-player');
     const openingNote = document.getElementById('opening-video-note');
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const shorelineBanner = document.getElementById('shoreline-banner');
+      shorelineBanner.autoplay = false;
+      shorelineBanner.pause();
       openingPlayer.autoplay = false;
       openingPlayer.pause();
       openingNote.textContent = 'Use the player controls or the button to start the introduction.';

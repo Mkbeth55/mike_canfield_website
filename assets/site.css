@@ -38,7 +38,7 @@
     nav { display: flex; flex-wrap: wrap; gap: 20px; }
     nav a { text-decoration: none; font-weight: bold; }
     .site-banner { margin: 0; background: #071e3d; }
-    .site-banner img { display: block; width: 100%; height: auto; }
+    .site-banner img, .site-banner video { display: block; width: 100%; height: auto; }
     .hero { background: var(--blue); color: white; padding: 85px 0; }
     .eyebrow {
       text-transform: uppercase;
@@ -94,7 +94,7 @@
     .book-empty { padding: 24px; background: #edf3eb; border-radius: 12px; }
     .book-empty h3 { margin-top: 0; }
     .site-banner { padding: 30px 0; background: var(--cream); }
-    .site-banner img { width: min(1100px, 90%); margin: auto; border-radius: 16px; }
+    .site-banner img, .site-banner video { width: min(1100px, 90%); margin: auto; border-radius: 16px; }
     @media (max-width: 800px) {
       .caregiver-opening { grid-template-columns: 1fr; gap: 24px; }
       .caregiver-hero { padding: 40px 0; }
