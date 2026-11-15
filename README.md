@@ -29,3 +29,5 @@ After updating poster PNGs, rebuild the printable files on Windows:
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-printable-posters.ps1
 ```
+
+Blue Trouble King also has a self-contained offline puzzle download. Rebuild it after changing the puzzle code or styles with: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-offline-puzzle.ps1
