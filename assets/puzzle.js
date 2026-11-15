@@ -2,8 +2,13 @@
   'use strict';
   const $ = id => document.getElementById(id);
   const board = $('board'), tray = $('tray'), status = $('puzzle-status');
-  const levels = {12: [3, 4], 24: [4, 6], 48: [6, 8]};
+  const levels = {12: [3, 4], 24: [4, 6], 48: [6, 8], 100: [10, 10]};
   const posters = {
+    "blue-trouble-king": {
+      "name": "Blue Trouble King",
+      "src": "assets/blue-trouble-king.webp",
+      "link": "assets/blue-trouble-king.webp"
+    },
     "excuse": {
       "name": "The Excuse Monster",
       "src": "assets/excuse-monster.png",
@@ -327,7 +332,11 @@
     option.value = key; option.textContent = item.name;
     return option;
   }));
-  const requestedPoster = new URLSearchParams(location.search).get('poster');
+  const params = new URLSearchParams(location.search);
+  const requestedPoster = params.get('poster');
+  const requestedPieces = params.get('pieces');
+  if (Object.hasOwn(levels, requestedPieces)) $('difficulty').value = requestedPieces;
+  else if (requestedPoster === 'blue-trouble-king') $('difficulty').value = '100';
   if (Object.hasOwn(posters, requestedPoster)) $('poster').value = requestedPoster;
   $('poster').addEventListener('change', () => {
     const url = new URL(location.href); url.searchParams.set('poster', $('poster').value);
