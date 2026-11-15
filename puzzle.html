@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Piece together Calm, Courage, or the Excuse Monster! Free jigsaw puzzles for families with 12, 24, or 48 pieces.">
+  <meta name="description" content="Piece together every Trouble Monster and Personal Power Pal poster! Free jigsaw puzzles for families with 12, 24, or 48 pieces.">
   <title>Excuse Monster Jigsaw | Mike Canfield</title>
   <link rel="stylesheet" href="assets/site.css">
   <link rel="stylesheet" href="assets/puzzle.css">
@@ -29,13 +29,18 @@
     <p id="instructions">Drag a piece to its spot, or tap a piece and then tap a space. With a keyboard, use Tab and Enter to choose a piece and a space. Escape clears your selection.</p>
     <div class="puzzle-progress"><progress id="progress" value="0" max="12" aria-label="Pieces placed"></progress><strong id="count">0 / 12 pieces</strong></div>
     <p id="puzzle-status" role="status" aria-live="polite">Loading your puzzle…</p>
+    <div class="piece-tray-toolbar">
+      <h2 id="tray-title">Your pieces <span id="remaining"></span></h2>
+      <div class="piece-pages" hidden><button type="button" id="pieces-previous" aria-label="Previous group of pieces">←</button><span id="piece-page" aria-live="polite"></span><button type="button" id="pieces-next" aria-label="Next group of pieces">→</button></div>
+    </div>
+    <p class="piece-layout-hint">Your pieces surround the board. If there are more pieces, use the arrows to see the next group.</p>
     <div class="puzzle-layout">
       <section aria-labelledby="board-title"><h2 id="board-title">Build your poster</h2><div id="board" class="puzzle-board" role="group" aria-label="Puzzle spaces" aria-describedby="instructions"></div></section>
-      <section aria-labelledby="tray-title"><h2 id="tray-title">Your pieces <span id="remaining"></span></h2><div id="tray" class="piece-tray" role="group" aria-label="Unplaced puzzle pieces"></div></section>
+      <section class="tray-section" aria-labelledby="tray-title"><div id="tray" class="piece-tray" role="group" aria-label="Unplaced puzzle pieces"></div></section>
     </div>
     <section id="complete" class="puzzle-complete" hidden tabindex="-1"><h2>You put it together!</h2><p>You kept trying, one piece at a time. That is Personal Power in action!</p><button type="button" id="play-again">Play again</button><a id="poster-link" href="posters.html#excuse-monster">Explore the Excuse Monster poster</a></section>
     <p class="puzzle-note">Take your time. There is no timer, and you can use the picture whenever you like.</p>
-    <noscript><p>Turn on JavaScript to play the puzzles. You can still view the <a href="assets/excuse-monster.png">Excuse Monster poster</a>, <a href="assets/courage-puzzle.png">Courage poster</a>, or <a href="assets/calm-puzzle.png">Calm poster</a>.</p></noscript>
+    <noscript><p>Turn on JavaScript to play the puzzles. You can still <a href="posters.html">browse and download all the posters</a>.</p></noscript>
   </main>
   <footer><div class="wrap"><p>Mike Canfield · Stories &amp; Personal Power · <a href="index.html">Back to home</a></p></div></footer>
 </body>

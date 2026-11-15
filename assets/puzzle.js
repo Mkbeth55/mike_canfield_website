@@ -4,13 +4,157 @@
   const board = $('board'), tray = $('tray'), status = $('puzzle-status');
   const levels = {12: [3, 4], 24: [4, 6], 48: [6, 8]};
   const posters = {
-    excuse: {name: 'The Excuse Monster', src: 'assets/excuse-monster.png', link: 'posters.html#excuse-monster'},
-    courage: {name: 'Courage', src: 'assets/courage-puzzle.png', link: 'assets/courage-puzzle.png'},
-    calm: {name: 'Calm', src: 'assets/calm-puzzle.png', link: 'assets/calm-puzzle.png'}
+    "excuse": {
+      "name": "The Excuse Monster",
+      "src": "assets/excuse-monster.png",
+      "link": "posters.html#excuse-monster"
+    },
+    "calm": {
+      "name": "Calm",
+      "src": "assets/calm-puzzle.png",
+      "link": "posters.html#calm-pal"
+    },
+    "courage": {
+      "name": "Courage",
+      "src": "assets/courage-puzzle.png",
+      "link": "posters.html#courage-pal"
+    },
+    "focus": {
+      "name": "Focus",
+      "src": "assets/focus-pal.png",
+      "link": "posters.html#focus-pal"
+    },
+    "anger": {
+      "name": "The Anger Monster",
+      "src": "assets/anger-monster.png",
+      "link": "posters.html#anger-monster"
+    },
+    "comparison": {
+      "name": "The Comparison Monster",
+      "src": "assets/comparison-monster.png",
+      "link": "posters.html#comparison-monster"
+    },
+    "distraction": {
+      "name": "The Distraction Monster",
+      "src": "assets/distraction-monster.png",
+      "link": "posters.html#distraction-monster"
+    },
+    "doubt": {
+      "name": "The Doubt Monster",
+      "src": "assets/doubt-monster.png",
+      "link": "posters.html#doubt-monster"
+    },
+    "frustration": {
+      "name": "The Frustration Monster",
+      "src": "assets/frustration-monster.png",
+      "link": "posters.html#frustration-monster"
+    },
+    "guilt": {
+      "name": "The Guilt Monster",
+      "src": "assets/guilt-monster.png",
+      "link": "posters.html#guilt-monster"
+    },
+    "hopelessness": {
+      "name": "The Hopelessness Monster",
+      "src": "assets/hopelessness-monster.png",
+      "link": "posters.html#hopelessness-monster"
+    },
+    "impatience": {
+      "name": "The Impatience Monster",
+      "src": "assets/impatience-monster.png",
+      "link": "posters.html#impatience-monster"
+    },
+    "isolation": {
+      "name": "The Isolation Monster",
+      "src": "assets/isolation-monster.png",
+      "link": "posters.html#isolation-monster"
+    },
+    "jealousy": {
+      "name": "The Jealousy Monster",
+      "src": "assets/jealousy-monster.png",
+      "link": "posters.html#jealousy-monster"
+    },
+    "laziness": {
+      "name": "The Laziness Monster",
+      "src": "assets/laziness-monster.png",
+      "link": "posters.html#laziness-monster"
+    },
+    "overwhelm": {
+      "name": "The Overwhelm Monster",
+      "src": "assets/overwhelm-monster.png",
+      "link": "posters.html#overwhelm-monster"
+    },
+    "peer-pressure": {
+      "name": "The Peer Pressure Monster",
+      "src": "assets/peer-pressure-monster.png",
+      "link": "posters.html#peer-pressure-monster"
+    },
+    "shame": {
+      "name": "The Shame Monster",
+      "src": "assets/shame-monster.png",
+      "link": "posters.html#shame-monster"
+    },
+    "stubbornness": {
+      "name": "The Stubbornness Monster",
+      "src": "assets/stubbornness-monster.png",
+      "link": "posters.html#stubbornness-monster"
+    },
+    "trouble": {
+      "name": "The Trouble Monster",
+      "src": "assets/trouble-monster.png",
+      "link": "posters.html#trouble-monster"
+    },
+    "worry": {
+      "name": "The Worry Monster",
+      "src": "assets/worry-monster.png",
+      "link": "posters.html#worry-monster"
+    }
   };
   let poster = posters.excuse, imageRatio = 2 / 3, loadVersion = 0;
   let cols, rows, total, placed = 0, selected = null, drag = null, ready = false;
   let suppressClick = false;
+  let piecePage = 0, pageCapacity = 1;
+  const layout = document.querySelector('.puzzle-layout');
+  // Keep the board and every visible loose piece inside one screen-sized table.
+  // Smaller screens show groups of pieces rather than a tray below the board.
+  function layoutPieces() {
+    if (!ready || !cols) return;
+    const width = layout.clientWidth, height = layout.clientHeight;
+    if (!width || !height) return;
+    const across = Math.max(5, Math.floor(width / 76));
+    const down = Math.max(5, Math.floor(height / 76));
+    const cellW = width / across, cellH = height / down;
+    const size = Math.max(44, Math.min(cellW, cellH) - 10);
+    const boardWidth = Math.min(width - 2 * (cellW + 6), (height - 2 * (cellH + 6)) * imageRatio);
+    layout.style.setProperty('--board-width', `${boardWidth}px`);
+    const boardHeight = boardWidth / imageRatio;
+    const left = (width - boardWidth) / 2, top = (height - boardHeight) / 2;
+    const positions = [];
+    for (let row = 0; row < down; row++) {
+      for (let col = 0; col < across; col++) {
+        const x = (col + .5) * cellW - size / 2;
+        const y = (row + .5) * cellH - size / 2;
+        if (x + size + 6 <= left || x - 6 >= left + boardWidth || y + size + 6 <= top || y - 6 >= top + boardHeight) positions.push({x, y});
+      }
+    }
+    pageCapacity = Math.max(1, positions.length);
+    const pieces = [...tray.querySelectorAll('button')];
+    const pages = Math.max(1, Math.ceil(pieces.length / pageCapacity));
+    piecePage = Math.min(piecePage, pages - 1);
+    pieces.forEach((piece, index) => {
+      const visible = Math.floor(index / pageCapacity) === piecePage;
+      piece.hidden = !visible;
+      if (visible) {
+        const position = positions[index % pageCapacity];
+        piece.style.left = `${position.x}px`; piece.style.top = `${position.y}px`;
+        piece.style.width = `${size}px`; piece.style.height = `${size}px`;
+      } else if (piece === selected) select(null);
+    });
+    document.querySelector('.piece-pages').hidden = pages === 1;
+    $('piece-page').textContent = `Group ${piecePage + 1} of ${pages}`;
+    $('pieces-previous').disabled = piecePage === 0;
+    $('pieces-next').disabled = piecePage === pages - 1;
+  }
   // A shared edge has the same curve in reverse on its neighboring piece.
   function edgeSign(r, c) { return (r * 7 + c * 3) % 2 ? 1 : -1; }
   function piecePath(r, c) {
@@ -57,14 +201,14 @@
     slot.setAttribute('aria-disabled', 'true');
     slot.setAttribute('aria-label', `Row ${Math.floor(Number(slot.dataset.id) / cols) + 1}, column ${Number(slot.dataset.id) % cols + 1}: placed`);
     slot.tabIndex = -1;
-    piece.remove(); placed++; updateProgress();
+    piece.remove(); placed++; updateProgress(); layoutPieces();
     status.textContent = 'You found its spot! Choose another piece.';
     if (placed === total) {
       $('complete').hidden = false;
       status.textContent = `All ${total} pieces placed. You did it!`;
       $('complete').focus({preventScroll: true});
     } else if (!drag) {
-      tray.querySelector('button')?.focus({preventScroll: true});
+      tray.querySelector('button:not([hidden])')?.focus({preventScroll: true});
     }
   }
   function cancelDrag() {
@@ -73,10 +217,13 @@
   }
   function start() {
     if (!ready) return;
-    cancelDrag(); select(null); placed = 0;
+    cancelDrag(); select(null); placed = 0; piecePage = 0;
     total = Number($('difficulty').value); [cols, rows] = levels[total];
     board.style.setProperty('--cols', cols); board.style.setProperty('--rows', rows);
     tray.style.setProperty('--piece-ratio', imageRatio * rows / cols);
+    const pieceRatio = imageRatio * rows / cols;
+    tray.style.setProperty('--thumb-width', `${68 * Math.min(1, pieceRatio)}%`);
+    tray.style.setProperty('--thumb-height', `${68 * Math.min(1, 1 / pieceRatio)}%`);
     board.replaceChildren(); tray.replaceChildren(); $('complete').hidden = true;
     $('progress').max = total;
     for (let id = 0; id < total; id++) {
@@ -105,7 +252,7 @@
       });
       tray.append(piece);
     });
-    updateProgress(); status.textContent = 'Your puzzle is ready. Choose any piece to begin!';
+    updateProgress(); layoutPieces(); status.textContent = 'Your puzzle is ready. Choose any piece to begin!';
   }
   document.addEventListener('pointermove', e => {
     if (!drag || e.pointerId !== drag.id) return;
@@ -136,7 +283,10 @@
   document.addEventListener('pointercancel', cancelDrag);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') { cancelDrag(); select(null); status.textContent = 'Selection cleared. Choose any piece.'; } });
   $('difficulty').addEventListener('change', start);
-  $('restart').addEventListener('click', start); $('play-again').addEventListener('click', () => { start(); tray.querySelector('button')?.focus(); });
+  $('restart').addEventListener('click', start); $('play-again').addEventListener('click', () => { start(); tray.querySelector('button:not([hidden])')?.focus({preventScroll: true}); });
+  $('pieces-previous').addEventListener('click', () => { cancelDrag(); select(null); piecePage--; layoutPieces(); });
+  $('pieces-next').addEventListener('click', () => { cancelDrag(); select(null); piecePage++; layoutPieces(); });
+  new ResizeObserver(() => { cancelDrag(); layoutPieces(); }).observe(layout);
   $('guide').addEventListener('change', e => board.classList.toggle('with-guide', e.target.checked));
   $('preview-toggle').addEventListener('click', () => {
     const shown = $('picture-preview').hidden;
@@ -171,6 +321,12 @@
     };
     image.src = poster.src;
   }
+  // Build the selector from the same catalog used to load the artwork.
+  $('poster').replaceChildren(...Object.entries(posters).map(([key, item]) => {
+    const option = document.createElement('option');
+    option.value = key; option.textContent = item.name;
+    return option;
+  }));
   const requestedPoster = new URLSearchParams(location.search).get('poster');
   if (Object.hasOwn(posters, requestedPoster)) $('poster').value = requestedPoster;
   $('poster').addEventListener('change', () => {
