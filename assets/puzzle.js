@@ -305,6 +305,9 @@
     board.replaceChildren(); tray.replaceChildren(); $('complete').hidden = true;
     placed = 0; total = Number($('difficulty').value); updateProgress();
     poster = posters[$('poster').value];
+    $('download-picture').href = poster.src;
+    $('download-picture').download = poster.src.split('/').pop();
+    $('download-picture').textContent = `Download ${poster.name} picture`;
     $('puzzle-title').textContent = `${poster.name} Jigsaw`;
     document.title = `${poster.name} Jigsaw | Mike Canfield`;
     $('poster-link').href = poster.link;
