@@ -1,4 +1,5 @@
 # Rebuild printable downloads from the original artwork. No external dependencies.
+param([string]$OnlySlug = '')
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Drawing
 $root = Split-Path $PSScriptRoot -Parent
@@ -11,6 +12,7 @@ $culture = [Globalization.CultureInfo]::InvariantCulture
 $jpegCodec = [Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object MimeType -eq 'image/jpeg'
 foreach ($poster in $posters) {
     $slug = $poster.Groups[1].Value
+    if ($OnlySlug -and $slug -ne $OnlySlug -and $slug -ne "$OnlySlug-blackline") { continue }
     $sourcePath = if ($slug.EndsWith('-blackline')) {
         Join-Path $root ("assets/coloring/" + $slug.Substring(0, $slug.Length - 10) + '.png')
     } else {

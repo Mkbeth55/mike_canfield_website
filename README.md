@@ -31,3 +31,14 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-printable-post
 ```
 
 Blue Trouble King also has a self-contained offline puzzle download. Rebuild it after changing the puzzle code or styles with: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-offline-puzzle.ps1
+
+Responsibility includes a 36-second video in the homepage library, color and
+black-line printable posters, and two jigsaws (12, 24, 48, or 100 pieces):
+`puzzle.html?poster=responsibility` and
+`puzzle.html?poster=responsibility-coloring`. The color artwork was extracted
+from `Avatar Video_720p (15).mp4`; the coloring artwork is a matching outline adaptation.
+Rebuild only these PDFs with:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-printable-posters.ps1 -OnlySlug responsibility-pal
+```
