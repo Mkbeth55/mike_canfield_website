@@ -4,6 +4,8 @@
   const board = $('board'), tray = $('tray'), status = $('puzzle-status');
   const levels = {12: [3, 4], 24: [4, 6], 48: [6, 8], 100: [10, 10]};
   const posters = {
+    "dependability-forest": {"name": "Dependability Power Pal in the Forest", "src": "assets/dependability-forest.png", "link": "posters.html#dependability-forest"},
+    "dependability-five-promises": {"name": "Ms. Dependability\u2019s Five Promises", "src": "assets/dependability-five-promises.png", "link": "posters.html#dependability-five-promises"},
     "responsibility": {"name": "Responsibility", "src": "assets/responsibility-pal.png", "link": "posters.html#responsibility-pal"},
     "responsibility-coloring": {"name": "Responsibility Coloring Poster", "src": "assets/coloring/responsibility-pal.png", "link": "coloring-pages.html#responsibility-pal"},
     "blue-trouble-king": {
