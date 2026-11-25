@@ -227,7 +227,8 @@ nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 
   max-width: 920px;
 }
 
-.sponsor-spot video {
+.sponsor-spot video,
+.sponsor-language-grid video {
   display: block;
   width: 100%;
   height: auto;
@@ -235,9 +236,16 @@ nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 
   background: #000;
 }
 
+.sponsor-language-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 360px));
+  gap: clamp(24px, 5vw, 48px);
+}
+
 @media (max-width: 680px) {
   .sponsor-spot { grid-template-columns: minmax(0, 1fr); }
   .sponsor-spot video { max-width: 360px; justify-self: center; }
+  .sponsor-language-grid { grid-template-columns: minmax(0, 360px); }
 }
 .poster-page-title { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.2; color: var(--blue); }
 .video-art.portrait-preview img { position: absolute; inset: 0; }
